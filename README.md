@@ -101,3 +101,39 @@ Security Groups
   - amazon uses block everything
   - make whitelists
 - set of rules to filter incoming and outgoing traffic, this is how we can open up a port publically to a service
+
+## AWS EC2 - Elastic Compute Cloud
+
+Virtual machine in the cloud
+- web service that provides secure, scalable compute capacity in the cloud
+- infrastructure as a service
+  - Amazon is providing the physical infrastructure, the storage, security all on the cloud
+  - we only need to worry about customizing whats on the os
+- places to deploy our applications, configure the security to allow people to access the application
+- type of the ec2 (t2, t3, t4..) indicicates the amount of computing power
+- tags can be placed on them to help describe what they are for/for metadata
+- to access them we use ssh and keypairs
+
+AMI - Amazon Machine Image
+- a template for what OS/Software you want preinstalled on an ec2
+- create your own, theres an aws market place, quickstart
+
+EBS - Elastic Block Storage
+- Volumes of block storage that we can use with ec2's
+- One of many storage devices on aws
+  - Special because they MUST be attacked to an ec2
+- just harddrive/ssd space to add onto virtual machines
+
+## EC2 Autoscaling
+
+Allows us to create and remove instances of an ec2 as we need with traffic
+- assigning an ec2(s) to an autoscaling group
+- aws will/can determine when more resources are needed
+  - automatically create and terminate ec2's for us
+- this is considered horizontal scaling
+  - apposed to onsite scaling (vertical), where you have to add more ram, more cpu, more hdd etc.
+- utilize Elastic Load Balanacers when autoscaling, so we can still access any of the resources
+
+ELB - Elastic Load Balancer
+- distribute incoming traffic across multiple aws resources
+- send a request load balanacer, and it will forward that request to an available resource
