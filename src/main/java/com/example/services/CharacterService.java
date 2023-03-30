@@ -6,6 +6,7 @@ import com.example.repository.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -19,11 +20,11 @@ public class CharacterService {
     }
 
     public Characters getCharacter(String nickname) throws InvalidCharacterException{
-        return characterRepo.getByNickname(nickname).orElseThrow(InvalidCharacterException::new);
+        return characterRepo.getByNickName(nickname).orElseThrow(InvalidCharacterException::new);
     }
 
-    public Set<Characters> getCharacters(){
-        return characterRepo.allCharacters();
+    public List<Characters> getCharacters(){
+        return characterRepo.findAll();
     }
 
 }

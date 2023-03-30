@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -23,7 +24,7 @@ public class CharacterController {
     }
 
     @GetMapping("/")
-    public Set<Characters> getCharacter(){
+    public List<Characters> getCharacter(){
         return characterService.getCharacters();
     }
 

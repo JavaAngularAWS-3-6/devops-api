@@ -1,17 +1,20 @@
 package com.example.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import com.example.models.Characters;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-@Component
-public class CharacterRepository {
+@Repository
+public interface CharacterRepository extends JpaRepository<Characters, Integer> {
 
-    private final Set<Characters> characters;
+    Optional<Characters> getByNickName(String nickName);
 
+    /*
     public CharacterRepository(){
         this.characters = new HashSet<>();
         Characters c = new Characters(1, "SpongeBob", "SquarePants", "SpongeBob", "Sea Sponge", "");
@@ -37,5 +40,6 @@ public class CharacterRepository {
     public Set<Characters> allCharacters(){
         return characters;
     }
+     */
 
 }

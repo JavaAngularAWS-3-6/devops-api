@@ -1,7 +1,12 @@
 package com.example.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Characters {
 
+    @Id
     private Integer id;
     private String firstName;
     private String lastName;

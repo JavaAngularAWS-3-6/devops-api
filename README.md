@@ -137,3 +137,33 @@ Allows us to create and remove instances of an ec2 as we need with traffic
 ELB - Elastic Load Balancer
 - distribute incoming traffic across multiple aws resources
 - send a request load balanacer, and it will forward that request to an available resource
+
+## AWS RDS - Relational Database Service
+
+Easily setup, operate, and scale relational databases
+- specialized EC2 instance with a database server installed
+- allows others to access a shared database
+- scalable
+- aws manages the adminstration tasks of the database for
+
+## AWS S3 - Simple Storage Service
+
+object storage solution on the aws cloud
+- store anything that you want
+- uses buckets which is a organizational structure for storing data
+- different from file storage
+  - file storage uses a tree like structure
+  - object storage is more like a heap
+    - objects can be literally anything
+    - objects store more information about the object in the form of metadata
+    - no hierarchy in object storage, everything is just thrown into a bucket
+    - every object has a url associated with it to gain access to it
+- all objects have a unique id of name + bucket + versionID
+- objects contain the information + metadata
+- you can store unimaginable amount of data, free tier is someingthing along the lines of 5 TB
+- durable and available
+  - automatically distributes across a minimum of three physcial locations
+- there are different tiers of s3 for different use cases
+  - s3 glacier, which is slower but holds more data cheaper
+
+AWS S3 Public bucket configuration:
