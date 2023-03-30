@@ -1,7 +1,7 @@
 let root = document.getElementById("root");
 
 async function setupPage(){
-    let req = await fetch('http://localhost:8000/characters/');
+    let req = await fetch('https://35.175.64.209:8000/characters/');
     let characters = await req.json();
 
     let charactersDiv = document.createElement("div");
@@ -26,7 +26,7 @@ async function displayCharacter(e){
     let info = document.getElementsByClassName('character-information')[0];
     info.innerHTML = '';
     let nickname = e.target.id;
-    let req = await fetch(`http://localhost:8000/characters/${nickname}`);
+    let req = await fetch(`https://35.175.64.209:8000/characters/${nickname}`);
     let character = await req.json();
     console.log(character);
     let image = document.createElement('img');

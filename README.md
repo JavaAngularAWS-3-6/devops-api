@@ -167,3 +167,18 @@ object storage solution on the aws cloud
   - s3 glacier, which is slower but holds more data cheaper
 
 AWS S3 Public bucket configuration:
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "PublicReadAccess",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::<bucket>/*"
+		}
+	]
+}
+```
