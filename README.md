@@ -256,3 +256,24 @@ Health
   - yellow unstable
   - red failure
   - gray no/aborted build
+
+## Jenkins Simple Steps
+
+To find the built artifact go to /var/lib/jenkins/workspace/JOBNAME
+
+## SonarCloud and SonarLint
+
+code analsys tool
+- increase readibility, security, maintainability, and standaradization
+- expose issues such as
+  - code smells: charactersitics of code that prevent maintainability
+    - confusing or hard to read code
+    - repeated instances of code
+    - unused imports
+    - empty code blocks
+    - unnaddressed automated comments
+  - vulnerablities: data security
+  - bugs: logical issues
+- sonarlint is a linter than can be installed directly into your IDE
+- sonarcloud is a cloud based analysis tool
+  - link the project repository at https://sonarcloud.io/
