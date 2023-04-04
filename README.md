@@ -260,7 +260,62 @@ Health
 
 ## Jenkins Simple Steps
 
+### 1. SSH Into your EC2 Instance
+
+### 2. Walk through the `jenkins.sh` script to install Java, Maven, Jenkins, and optionally setup swap space and install docker
+
+### 3. Retrieve the Jenkins Admin Password
+
+`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
+
+### 4. Visit `http://EC2IP:8080` to view the Jenkins Dashboard
+
+### 5. In the Jenkins Dashboard
+-   Input the Admin Password
+-   Install suggested plugins
+-   Create a new user with an easier password
+-   Skip setting up a url
+-   Finish and continue to the URL
+
+### 6. Setup the github webhook
+
+-   Go to the repo and navigate to Webhooks > Add Webhook
+-   Set payload URL to `http://EC2IP:8080/github-webhook/`
+-   Set the content type to application/json
+-   Choose `Let me select individual events`
+  -   Pull Requests, Pushes
+-   Add Webhook
+  -   If the delivery fails, try to fix the issue and redeliver until it works
+
+### 7. Setup the Jenkins Job to Pull and Build the code
+
+-   New Item > Name it > Free Style Project > OK
+-   Description > Can be literally anything
+-   Source Code Management > Git > Paste the URL to the Repo
+-   Branches to Build > \*/main
+-   Build triggers > Github hook trigger for GitScm polling
+-   Build > Add Build Step > Execute Shell
+
+### 8. Setup the Execute Shell
+
+-   Start with ls to see the package structure from github
+-   ```
+        ls
+        echo Change directory into the root project folder
+        cd <root-folder>
+        echo Making sure Jenkins recognizes the maven install
+        mvn -version
+        echo Test and Build our project
+        mvn clean install
+    ```
+    
+### 9. Any push to main will test and build your application
 To find the built artifact go to /var/lib/jenkins/workspace/JOBNAME
+
+### 10. To run the application
+
+- setup a new job to mv the file and run it automatically
+- manually move the artifact file and run java -jar
 
 ## SonarCloud and SonarLint
 
