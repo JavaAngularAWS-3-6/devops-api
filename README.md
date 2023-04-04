@@ -160,7 +160,7 @@ object storage solution on the aws cloud
     - every object has a url associated with it to gain access to it
 - all objects have a unique id of name + bucket + versionID
 - objects contain the information + metadata
-- you can store unimaginable amount of data, free tier is someingthing along the lines of 5 TB
+- you can store unimaginable amount of data, free tier is something along the lines of 5 TB
 - durable and available
   - automatically distributes across a minimum of three physcial locations
 - there are different tiers of s3 for different use cases
@@ -182,3 +182,77 @@ AWS S3 Public bucket configuration:
 	]
 }
 ```
+
+# DevOps Overview
+
+Combination of development (actively writing code) and operations (maintaining the infrastructure used to host the application)
+- allows companies to develope higher quality applications more effieciently
+- automating as tasks as possible
+  - building
+  - testing
+  - deploying
+
+DevOps and Agile
+- These two methodologies go hand and hand
+- full adoption of the agile process helps aid the establishment of a working devops pipeline
+  - ideal pipeline automates every task from building the application to deploying to production
+
+CI - Continuous Integration
+- first and most fundamental step of a devops pipeline
+- process of reviewing and consistently merging code into a central repository
+  - small, consistent incremental changes pushed frequently
+  - code is built and tested automatically with each merge
+- acheived when all team practice consistent merging of code
+- benefits
+  - everyone has the most up to date code
+  - broken builds will be found immediately
+  - small changes reduce the risk of bugs and difficulty merging into large code bases
+
+CD - Continuous Delivery
+- continous integration must first be achieved before moving onto this step
+- taking the automatically built and tested artifact from the CI step and manually deploying it
+  - may also automatically take the built and tested artifact from CI and automatically deploy it a testing/production like environment
+- get the application one click from deployment
+
+CD - Continuous Deployment
+- the final step in automating software production
+- continuous integration must first be achieved, continous delivery is optional
+- merge, test, build, push the artifact to the production server, and run the artifact in a single pipeline
+
+Benefits and Costs
+- fast and effiecient release of features
+- small changes being tested each push
+- streams of improvement are good
+- large investment in testing culture
+- more documentation required for communication across teams
+- increase in production costs to pay an engineer(s) to maintain pipeline
+
+## Jenkins
+
+Open source ci/cd automation server
+- commonly used with github actions to automatically test, build, and deploy software application
+- self-contained, can be installed standalone on a server, or through the use of docker
+
+Jenkins Jobs and Projects
+- jobs describe a set of steps to automate a task
+  - typically, pulling a repo, testing, building an artifact
+- jobs can be triggered several ways
+  - manually
+  - externally (api)
+  - by other jobs
+- jobs generate builds, which contain information and artifacts about the finished job
+
+Health
+- each job has a status called health
+- represent how the last 5 build attempts have gone
+- health is represented by weather conditions
+  - sunny > 81%
+  - partially sunny >60%
+  - cloudy > 40%
+  - raining > >20%
+  - stormy <= 20%
+- each build also has a status denoting pass or fail
+  - blue success
+  - yellow unstable
+  - red failure
+  - gray no/aborted build

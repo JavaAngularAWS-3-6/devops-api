@@ -21,10 +21,13 @@ echo "maven installed"
 
 echo "installing jenkins"
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
-sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
+sudo yum upgrade
 sudo yum install jenkins -y
 echo "jenkins installed now starting"
-sudo service jenkins start
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
 echo "jenkins started"
 
 echo "allocated 1 GB swap space"
