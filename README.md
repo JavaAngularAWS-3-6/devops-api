@@ -256,6 +256,7 @@ Health
   - yellow unstable
   - red failure
   - gray no/aborted build
+<<<<<<< HEAD
 
 ## Jenkins Simple Steps
 
@@ -277,3 +278,5 @@ code analsys tool
 - sonarlint is a linter than can be installed directly into your IDE
 - sonarcloud is a cloud based analysis tool
   - link the project repository at https://sonarcloud.io/
+
+Testing the devops build pipeline
